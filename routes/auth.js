@@ -3,7 +3,7 @@
 
 const router = require('express-promise-router')();
 const graph = require('../graph');
-const OAUTH_SCOPES = "User.Read,People.Read.All,User.Read.All,Sites.Read.All,Sites.ReadWrite.All";
+const OAUTH_SCOPES = "User.Read.All,People.Read.All";
 const OAUTH_REDIRECT_URI = "https://consumirlibreriasbackend.herokuapp.com/auth/callback";
 
 /* GET auth callback. */
