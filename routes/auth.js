@@ -17,7 +17,7 @@ router.get('/signin',
     try {
       const authUrl = await req.app.locals
         .msalClient.getAuthCodeUrl(urlParameters);
-      console.log('signed in, redirecting ...')
+      console.log('signed in, redirecting ...');
       res.redirect(authUrl);
     }
     catch (error) {

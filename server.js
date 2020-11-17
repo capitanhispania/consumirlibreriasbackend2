@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('./demo/graph-tutorial/app');
+var app = require('./app');
 var debug = require('debug')('graph-tutorial:server');
 var http = require('http');
 
