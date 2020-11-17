@@ -47,7 +47,8 @@ router.get('/callback',
       // Save the user's homeAccountId in their session
       req.session.userId = response.account.homeAccountId;
 
-      const user = await graph.getUserDetails(response.accessToken);
+      //const user = await graph.getUserDetails(response.accessToken);
+      const spList = await graph.getSharePointList(response.accessToken);
       console.log('access token = ' + response.accessToken);
       // Add the user to user storage
       req.app.locals.users[req.session.userId] = {

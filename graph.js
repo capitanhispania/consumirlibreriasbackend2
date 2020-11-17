@@ -10,11 +10,21 @@ module.exports = {
     console.log('authenticatedClient obtained');
     const user = await client
       .api('/me')
-      .select('displayName,mail,mailboxSettings,userPrincipalName')
       .get();
       console.log('user info obtained');
     return user;
   },
+  getSharePointList: async function(accessToken) {
+    const client = getAuthenticatedClient(accessToken);
+    var SPSiteID = "auditasa.sharepoint.com/sites/myroom,f8847ec1-1c42-4f09-bd00-4dc6cbf57875,4047d743-691c-4578-9795-4c1458096e98";   // Sharepoint Site ID  
+    var ListID = "07f64111-6d12-47d0-9672-7124bdddce3b"; // List/LibraryID  
+    var GraphURL = "/sites/"+ SPSiteID +"/lists/"+ ListID +"/items";  //Constructed URL  
+    const user = await client
+      .api(GraphURL)
+      .get();
+      console.log('getSharePointList info obtained');
+    return user;
+  }, 
 
   // <GetCalendarViewSnippet>
   getCalendarView: async function(accessToken, start, end, timeZone) {
