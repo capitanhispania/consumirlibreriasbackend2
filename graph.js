@@ -17,7 +17,7 @@ module.exports = {
   getSharePointList: async function(accessToken) {
     const client = getAuthenticatedClient(accessToken);
     var SPSiteID = "auditasa.sharepoint.com,701dc476-809c-4f99-a86a-a9d06ad1e086,f8847ec1-1c42-4f09-bd00-4dc6cbf57875";   // Sharepoint Site ID  
-    var ListID = "07f64111-6d12-47d0-9672-7124bdddce3b"; // List/LibraryID  
+    var ListID = "c7e122bc-de16-4136-9a24-17ed486ed59f"; // List/LibraryID  
     var GraphURL = "/sites/"+ SPSiteID +"/lists/"+ ListID +"/items";  //Constructed URL  
     const user = await client
       .api(GraphURL)
