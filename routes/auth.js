@@ -41,14 +41,16 @@ router.get('/callback',
     };
 
     try {
+      console.log('tokenRequest = ' + JSON.stringify(tokenRequest));
       const response = await req.app.locals
         .msalClient.acquireTokenByCode(tokenRequest);
 
       // Save the user's homeAccountId in their session
       req.session.userId = response.account.homeAccountId;
-
-      const user = await graph.getUserDetails(response.accessToken);
       console.log('access token = ' + response.accessToken);
+      
+      const user = await graph.getUserDetails(response.accessToken);
+      
       // Add the user to user storage
       req.app.locals.users[req.session.userId] = {
         displayName: user.displayName,

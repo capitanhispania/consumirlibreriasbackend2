@@ -185,14 +185,14 @@ async function getAccessToken(userId, msalClient) {
       .getAllAccounts();
 
     const userAccount = accounts.find(a => a.homeAccountId === userId);
-
+    console.log('userAccount = ' +  JSON.stringify(userAccount));
     // Get the token silently
     const response = await msalClient.acquireTokenSilent({
       scopes: process.env.OAUTH_SCOPES.split(','),
       redirectUri: process.env.OAUTH_REDIRECT_URI,
       account: userAccount
     });
-
+    console.log('accestoken = ' + response.accessToken);
     return response.accessToken;
   } catch (err) {
     console.log(JSON.stringify(err, Object.getOwnPropertyNames(err)));
